@@ -1,0 +1,29 @@
+Use case: refund and dispute agent for an Amazon-like store
+
+Good pick. It’s the easiest case to explain, and money moving makes every harness concern real.
+
+The problem
+
+A customer opens a chat or ticket: “My order arrived damaged, I want a refund.” 
+Today a human agent checks the order, delivery status, return policy, and payment, then decides, issues the refund, 
+and emails the customer. We’re building the harness that lets an AI do most of this safely.
+
+
+User flow
+The customer submits a complaint (text, optionally with a photo later).
+Triage classifies the case and pulls out the order ID and the issue.
+Investigator gathers facts: order details, delivery tracking, payment records, customer history.
+Policy checker decides whether the case is eligible and what the options are.
+Resolver proposes an action: refund, replace, deny, or escalate.
+Human approval is required if the amount is high or the case is risky.
+Execution issues the refund, updates the ticket, and emails the customer.
+The case is closed and stored in the customer’s history.
+
+
+Success criteria (“done” for the project)
+A damaged-item case under the threshold completes end to end with no human.
+A high-value case pauses, survives a server restart, and resumes after approval.
+Killing the process mid-run and restarting continues from the last checkpoint.
+Forcing the email API to fail never causes a duplicate refund.
+A returning customer’s earlier cases are visible to the agent in a new session.
+Every step is traceable (which agent did what, with which tool result).
