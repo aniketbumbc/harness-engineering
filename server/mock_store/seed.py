@@ -1,6 +1,9 @@
 from pathlib import Path
 
-from db import get_conn
+try:
+    from .db import get_conn
+except ImportError:
+    from db import get_conn
 
 HERE = Path(__file__).parent
 
