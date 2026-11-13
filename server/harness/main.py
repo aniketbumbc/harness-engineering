@@ -1,6 +1,5 @@
 import httpx
 from fastapi import FastAPI
-
 from shared.settings import settings
 
 app = FastAPI(title="Refund Harness")
