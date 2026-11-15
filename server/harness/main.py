@@ -7,7 +7,7 @@ app = FastAPI(title="Refund Harness")
 
 @app.get("/health")
 def health():
-    r = httpx.get(f"{settings.MOCK_STORE_URL}/health", timeout=5)
+    r = httpx.get(f"{settings.mock_store_url}/health", timeout=5)
     return {
         "status": "ok",
         "service": "harness",
