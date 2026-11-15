@@ -3,7 +3,7 @@ from contextlib import contextmanager
 import psycopg
 from psycopg.rows import dict_row
 
-from settings import settings
+from shared.settings import settings
 
 
 @contextmanager
