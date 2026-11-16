@@ -63,6 +63,5 @@ def evaluate(case_type, order: dict, payments: list[dict], refunds_90d: int,
     if amount >= settings.refund_approval_threshold:
         hits.append("R6_over_threshold_needs_approval")
         return result("refund", amount, approval=True)
-
     hits.append("R6_under_threshold_auto")
     return result("refund", amount)

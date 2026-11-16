@@ -1,7 +1,5 @@
 import httpx
-
 from shared.settings import settings
-
 from .audit import log_event
 from .db import get_conn
 from .init_db import run as init_db
